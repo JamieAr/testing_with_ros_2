@@ -1,0 +1,30 @@
+microstrain_inertial_driver:
+  ros__parameters:
+    port: /tmp/ttyV0
+
+    imu_frame_id: "gx5_link"
+    filter_frame_id: "sensor_wgs84"
+    filter_child_frame_id: "sensor_ned"
+
+    imu_data_rate: 100
+    filter_data_rate: 20  # Not sure if you guys want 10, or 20 here. The arg has a value of 10, but it is not used by the actual 		param, which has a value of 20
+    baudrate: 921600
+    raw_file_enable: False
+
+    gnss1_antenna_offset: [0.7,0.0,0.0]
+    gnss2_antenna_offset: [-0.65,0.0,0.0]
+
+    rtk_dongle_enable: True
+
+    filter_enable_wheeled_vehicle_constraint : True
+
+    filter_sensor2vehicle_frame_selector: 0
+    filter_sensor2vehicle_frame_transformation_quaternion: [0.0,0.0,0.0,1.0]
+
+    filter_heading_source: 0
+    filter_auto_heading_alignment_selector: 1
+    filter_enable_gnss_antenna_cal     : true
+    filter_gnss_antenna_cal_max_offset : 0.1
+
+    raw_file_enable : false
+    raw_file_directory : "/app/reports/ins_logs"
